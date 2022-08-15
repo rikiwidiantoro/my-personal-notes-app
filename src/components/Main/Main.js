@@ -8,7 +8,9 @@ function Main() {
     return(
         <div className="note-app__body">
             <InputCatatan />
+            <h2>Catatan Aktif</h2>
             <ItemCatatan />
+            <h2>Arsip</h2>
             <ArsipCatatan />
         </div>
     );
