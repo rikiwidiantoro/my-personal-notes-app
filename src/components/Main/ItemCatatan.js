@@ -1,10 +1,18 @@
 import React from "react";
-import '../../style/style.css';
+// import '../../style/style.css';
+import NoteItem from "./NoteItem";
 
-function ItemCatatan() {
-    return(
+function ItemCatatan({notes}) {
+    return (
         <div className="notes-list">
-            {/* <h2>Catatan Aktif</h2> */}
+            {
+                notes.map((note) => (
+                    <NoteItem 
+                    key={note.id}
+                    {...note}
+                    />
+                ))
+            }
         </div>
     );
 }
