@@ -19,6 +19,13 @@ class App extends React.Component {
         this.state = {
             notes: getInitialData(),
         }
+
+        this.onDeleteFungsi = this.onDeleteFungsi.bind(this);
+    }
+
+    onDeleteFungsi(id) {
+        const notes = this.state.notes.filter(note => note.id !== id);
+        this.setState({notes});
     }
 
     render() {
@@ -26,7 +33,7 @@ class App extends React.Component {
             <div>
                 <Header />
                 {/* <Main /> */}
-                <Main notes={this.state.notes} />
+                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} />
             </div>
         );
     }
