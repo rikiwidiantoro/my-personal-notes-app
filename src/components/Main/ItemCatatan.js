@@ -1,6 +1,6 @@
 import React from "react";
 // import '../../style/style.css';
-import NoteItem from "./NoteItem";
+import NoteItem from "./Item/NoteItem";
 
 function ItemCatatan({notes}) {
     return (
