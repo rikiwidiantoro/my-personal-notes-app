@@ -2,11 +2,11 @@ import React from "react";
 import ButtonDelete from './aksi/ButtonDelete';
 import ButtonArsip from './aksi/ButtonArsip';
 
-function NoteAksi({ id, onDelete }) {
+function NoteAksi({ id, onDelete, onArsip }) {
     return (
         <div className="note-item__action">
             <ButtonDelete id={id} onDelete={onDelete} />
-            <ButtonArsip />
+            <ButtonArsip id={id} onArsip={onArsip} />
         </div>
     );
 }

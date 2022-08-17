@@ -23,6 +23,7 @@ class App extends React.Component {
 
         this.onDeleteFungsi = this.onDeleteFungsi.bind(this);
         this.onTambahNotesFungsi = this.onTambahNotesFungsi.bind(this);
+        this.onArsipFungsi = this.onArsipFungsi.bind(this);
     }
 
     onDeleteFungsi(id) {
@@ -45,12 +46,33 @@ class App extends React.Component {
         });
     }
 
+    // fungsi arsip
+    onArsipFungsi(id) {
+        const noteId = this.state.notes.filter(note => note.id !== id);
+        this.setState({noteId});
+
+        const arsip = document.querySelector('.note-item');
+
+        const bodi = document.querySelector('.note-app__body');
+
+        const emptyCatatan = document.querySelector('.notes-list__empty-message');
+        emptyCatatan.remove();
+
+        bodi.append(arsip);
+
+        console.log(noteId.id);
+
+        
+
+
+    }
+
     render() {
         return (
             <div>
                 <Header />
                 {/* <Main /> */}
-                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} tambahNotes={this.onTambahNotesFungsi} />
+                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} tambahNotes={this.onTambahNotesFungsi} />
                 <Footer />
             </div>
         );
