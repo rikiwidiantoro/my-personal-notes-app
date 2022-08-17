@@ -3,11 +3,7 @@ import React from "react";
 // import {showFormattedDate} from '../../utils/index';
 
 function ArsipCatatan() {
-    return(
-        <div className="notes-list">
-
-        </div>
-    );
+    return <p className="notes-list__empty-message">Tidak ada catatan</p>;
 }
 
 export default ArsipCatatan;
