@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
 import { getInitialData } from '../utils/index';
 
 // function App() {
@@ -50,6 +51,7 @@ class App extends React.Component {
                 <Header />
                 {/* <Main /> */}
                 <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} tambahNotes={this.onTambahNotesFungsi} />
+                <Footer />
             </div>
         );
     }
