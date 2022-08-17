@@ -6,10 +6,10 @@ import ArsipCatatan from "./ArsipCatatan";
 
 // import { getInitialData } from '../../utils/index';
 
-function Main({notes, onDelete}) {
+function Main({notes, onDelete, tambahNotes}) {
     return(
         <div className="note-app__body">
-            <InputCatatan />
+            <InputCatatan tambahNotes={tambahNotes} />
             <h2>Catatan Aktif</h2>
             <ItemCatatan notes={notes} onDelete={onDelete} />
             <h2>Arsip</h2>
