@@ -12,6 +12,7 @@ function ItemCatatan({notes, onDelete, onArsip}) {
                     id={note.id}
                     onDelete={onDelete}
                     onArsip={onArsip}
+                    archived={note.archived}
                     {...note}
                     />
                 ))
