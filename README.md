@@ -1,3 +1,11 @@
+# My Personal Notes App
+Adalah aplikasi catatan sederhana berbasis web
+Aplikasi ini dibuat dengan :
+
+1. Bahasa Markup HTML dan CSS
+2. Bahasa Pemrograman JavaScript
+3. Library React js
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
