@@ -86,7 +86,7 @@ class App extends React.Component {
 
 
 
-    onArsipFungsi({id, archived}) {
+    onArsipFungsi({id}) {
         const noteId = this.state.notes.filter(note => note.id === id);
         // const gantiArsipStatus = this.state.notes.filter(note => note.archived === archived);
         // const aa = this.setState(noteId => {
@@ -106,8 +106,10 @@ class App extends React.Component {
         console.log(noteId);
 
         // console.log(id);
-        const status = noteId[0].archived;
         // this.setState({gantiArsipStatus});
+
+        // const status = noteId[0].archived;
+        // console.log(status);
         
     }
 

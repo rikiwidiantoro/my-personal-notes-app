@@ -3,6 +3,12 @@ import React from "react";
 import NoteItem from "./Item/NoteItem";
 
 function ItemCatatan({notes, onDelete, onArsip}) {
+    // notes.map((note) => {
+    //     if(note.archived == true) {
+
+    
+    //     }
+    // });
     return (
         <div className="notes-list">
             {
@@ -12,7 +18,7 @@ function ItemCatatan({notes, onDelete, onArsip}) {
                     id={note.id}
                     onDelete={onDelete}
                     onArsip={onArsip}
-                    archived={note.archived}
+                    // archived={note.archived}
                     {...note}
                     />
                 ))

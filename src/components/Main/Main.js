@@ -13,7 +13,7 @@ function Main({notes, onDelete, onArsip, tambahNotes}) {
             <h2>Catatan Aktif</h2>
             <ItemCatatan notes={notes} onDelete={onDelete} onArsip={onArsip} />
             <h2>Arsip</h2>
-            <ArsipCatatan />
+            <ArsipCatatan notes={notes} />
         </div>
     );
 }
