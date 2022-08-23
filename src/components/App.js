@@ -4,14 +4,6 @@ import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import { getInitialData } from '../utils/index';
 
-// function App() {
-//     return(
-//         <div>
-//             <Header />
-//             <Main />
-//         </div>
-//     );
-// }
 
 class App extends React.Component {
     constructor(props) {
@@ -19,15 +11,15 @@ class App extends React.Component {
 
         this.state = {
             notes: getInitialData(),
+            inputSearch: '',
         }
 
         this.onDeleteFungsi = this.onDeleteFungsi.bind(this);
         this.onTambahNotesFungsi = this.onTambahNotesFungsi.bind(this);
         this.onArsipFungsi = this.onArsipFungsi.bind(this);
 
-        // this.tambahToSelesai = this.tambahToSelesai.bind(this);
-        // this.buatTombolSelesai = this.buatTombolSelesai.bind(this);
-        // this.cekTombol = this.cekTombol.bind(this);
+        this.SearchNoteHandle = this.SearchNoteHandle.bind(this);
+
     }
 
     onDeleteFungsi(id) {
@@ -50,82 +42,39 @@ class App extends React.Component {
         });
     }
 
-    // fungsi arsip
-    // cekTombol(){
-    //     buatTombolSelesai(event) {
-    //         this.onArsipFungsi(event.target.parentElement.parentElement);
-    //     };
-    // }
-    // buatTombolSelesai(eventListener) {
-    //     const tombol = document.createElement("input");
-    //     tombol.setAttribute('type', 'submit');
-    //     tombol.setAttribute('value', 'Selesai dibaca');
-    //     // tombol.classList.add(buttonTypeClass);
-    //     tombol.addEventListener('click', function(event) {
-    //         eventListener(event);
-    //     });
-    //     return tombol;
-    // }
-    // onArsipFungsi(id) {
-    //     const noteId = this.state.notes.filter(note => note.id !== id);
-    //     // const coba = this.state.notes.filter(note => note.id === id);
-    //     this.setState({noteId});
-
-    //     // const arsip = document.querySelector('.note-item');
-
-    //     // const bodi = document.querySelector('.note-app__body');
-
-    //     const emptyCatatan = document.querySelector('.notes-list__empty-message');
-    //     emptyCatatan.remove();
-
-    //     // bodi.append(arsip);
-
-    //     // console.log(arsip);
-
-    // }
-
-
-
     onArsipFungsi(id) {
-        const noteId = this.state.notes.filter(note => note.id === id);
-        const noteIdi = this.state.notes.filter(note => note.id !== id);
-        // const gantiArsipStatus = this.state.notes.filter(note => note.archived === archived);
-        // const aa = this.setState(noteId => {
-        //     return {
-        //         notes: noteId.archived = true
-        //     };
-        // });
-        // this.setState({noteId});
+        let note = this.state.notes.filter(note => note.id === id)
+        note[0].archived = true
 
-        // gantiArsipStatus = true;
-        const aa = noteId.map((nn) => {
-            nn.archived = true;
+        let newNote = this.state.notes.filter(note => note.id !== id)
+
+        this.setState((prevstate) => {
+            return {
+                ...prevstate,
+                notes: [
+                    ...newNote,
+                    note[0]
+                ]
+            }
         })
-        this.setState({aa});
-        // const aa = this.state.notes.map((nn) => {
-        //     nn.archived = true;
-        // })
-        // this.setState(aa);
-        
+    }
 
-        console.log(noteId);
-        console.log(noteIdi);
-        // return
 
-        // console.log(id);
-        // this.setState({gantiArsipStatus});
 
-        // const status = noteId[0].archived;
-        // console.log(status);
-        
+    SearchNoteHandle(value){
+        this.setState((prevstate) => {
+            return {
+                ...prevstate,
+                inputSearch: value
+            }
+        })
     }
 
     render() {
         return (
             <div>
                 <Header />
-                {/* <Main /> */}
-                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} tambahNotes={this.onTambahNotesFungsi} />
+                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} tambahNotes={this.onTambahNotesFungsi} inputSearch={this.state.inputSearch} />
                 <Footer />
             </div>
         );
