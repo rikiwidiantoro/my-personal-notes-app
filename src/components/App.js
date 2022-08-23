@@ -86,24 +86,31 @@ class App extends React.Component {
 
 
 
-    onArsipFungsi({id}) {
+    onArsipFungsi(id) {
         const noteId = this.state.notes.filter(note => note.id === id);
+        const noteIdi = this.state.notes.filter(note => note.id !== id);
         // const gantiArsipStatus = this.state.notes.filter(note => note.archived === archived);
         // const aa = this.setState(noteId => {
         //     return {
         //         notes: noteId.archived = true
         //     };
         // });
-        // this.setState({archived});
+        // this.setState({noteId});
 
         // gantiArsipStatus = true;
-        const aa = this.state.notes.map((nn) => {
+        const aa = noteId.map((nn) => {
             nn.archived = true;
         })
-        this.setState(aa);
+        this.setState({aa});
+        // const aa = this.state.notes.map((nn) => {
+        //     nn.archived = true;
+        // })
+        // this.setState(aa);
         
 
         console.log(noteId);
+        console.log(noteIdi);
+        // return
 
         // console.log(id);
         // this.setState({gantiArsipStatus});
