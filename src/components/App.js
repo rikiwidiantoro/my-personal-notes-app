@@ -73,7 +73,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header searchNote={this.SearchNoteHandle}/>
                 <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} tambahNotes={this.onTambahNotesFungsi} inputSearch={this.state.inputSearch} />
                 <Footer />
             </div>

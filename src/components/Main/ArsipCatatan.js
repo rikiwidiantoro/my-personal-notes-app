@@ -6,7 +6,7 @@ import NoteItem from "./Item/NoteItem";
 // function ArsipCatatan({notes, onDelete, onArsip}) {
 function ArsipCatatan({notes, inputSearch, onDelete}) {
     return (
-        <div>
+        <div className="notes-list">
             {
                 notes.length ?
 
@@ -18,13 +18,13 @@ function ArsipCatatan({notes, inputSearch, onDelete}) {
                     }
                     return false
                 }).map((note,key) => 
-                    note.archived && <NoteItem key={key} onDelete={onDelete}  {...note} />
+                    note.archived && <NoteItem key={key} onDelete={onDelete} {...note} />
                 )
                             :
-                <p>Belum ada catatan</p>
+                <p>Tidak ada catatan</p>
             }
             {
-                notes.length ? notes.filter(note => note.archived).length <= 0 && <p>Belum ada catatan</p> : false
+                notes.length ? notes.filter(note => note.archived).length <= 0 && <p>Tidak ada catatan</p> : false
             }
         </div>
     );

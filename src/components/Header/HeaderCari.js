@@ -1,9 +1,9 @@
 import React from "react";
 // import '../../style/style.css';
 
-function HeaderCari() {
+function HeaderCari({searchNote}) {
     return(
-        <input type='text' placeholder='Cari catatan ...' />
+        <input type='search' placeholder='Cari catatan ...' onInput={(event) => searchNote(event.target.value) }/>
     );
 }
 
