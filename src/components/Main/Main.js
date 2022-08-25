@@ -8,14 +8,14 @@ import ArsipCatatan from "./ArsipCatatan";
 
 // import { getInitialData } from '../../utils/index';
 
-function Main({notes, onDelete, onArsip, tambahNotes, inputSearch}) {
+function Main({notes, onDelete, onArsip, unArsip, tambahNotes, inputSearch}) {
     return(
         <div className="note-app__body">
             <InputCatatan tambahNotes={tambahNotes} />
             <h2>Catatan Aktif</h2>
             <ItemCatatan notes={notes} onDelete={onDelete} onArsip={onArsip} inputSearch={inputSearch} />
             <h2>Arsip</h2>
-            <ArsipCatatan notes={notes} inputSearch={inputSearch} onDelete={onDelete}/>
+            <ArsipCatatan notes={notes} inputSearch={inputSearch} onDelete={onDelete} unArsip={unArsip} />
         </div>
     );
 }

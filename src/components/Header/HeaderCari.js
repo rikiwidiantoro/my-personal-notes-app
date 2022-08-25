@@ -3,7 +3,9 @@ import React from "react";
 
 function HeaderCari({searchNote}) {
     return(
-        <input type='search' placeholder='Cari catatan ...' onInput={(event) => searchNote(event.target.value) }/>
+        <div className="note-search">
+            <input type='search' placeholder='Cari catatan ...' onInput={(event) => searchNote(event.target.value) }/>
+        </div>
     );
 }
 

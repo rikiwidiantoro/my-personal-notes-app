@@ -17,6 +17,7 @@ class App extends React.Component {
         this.onDeleteFungsi = this.onDeleteFungsi.bind(this);
         this.onTambahNotesFungsi = this.onTambahNotesFungsi.bind(this);
         this.onArsipFungsi = this.onArsipFungsi.bind(this);
+        this.unArsipFungsi = this.unArsipFungsi.bind(this);
 
         this.SearchNoteHandle = this.SearchNoteHandle.bind(this);
 
@@ -43,10 +44,10 @@ class App extends React.Component {
     }
 
     onArsipFungsi(id) {
-        let note = this.state.notes.filter(note => note.id === id)
-        note[0].archived = true
+        let note = this.state.notes.filter(note => note.id === id);
+        note[0].archived = true;
 
-        let newNote = this.state.notes.filter(note => note.id !== id)
+        let newNote = this.state.notes.filter(note => note.id !== id);
 
         this.setState((prevstate) => {
             return {
@@ -56,25 +57,38 @@ class App extends React.Component {
                     note[0]
                 ]
             }
-        })
+        });
     }
+    unArsipFungsi(id){
+        let note = this.state.notes.filter(note => note.id === id);
+        note[0].archived = false;
 
+        let newNote = this.state.notes.filter(note => note.id !== id);
 
-
+        this.setState((prevstate) => {
+            return {
+                ...prevstate,
+                notes: [
+                    ...newNote,
+                    note[0]
+                ]
+            }
+        });
+    }
     SearchNoteHandle(value){
         this.setState((prevstate) => {
             return {
                 ...prevstate,
                 inputSearch: value
             }
-        })
+        });
     }
 
     render() {
         return (
             <div>
                 <Header searchNote={this.SearchNoteHandle}/>
-                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} tambahNotes={this.onTambahNotesFungsi} inputSearch={this.state.inputSearch} />
+                <Main notes={this.state.notes} onDelete={this.onDeleteFungsi} onArsip={this.onArsipFungsi} unArsip={this.unArsipFungsi} tambahNotes={this.onTambahNotesFungsi} inputSearch={this.state.inputSearch} />
                 <Footer />
             </div>
         );

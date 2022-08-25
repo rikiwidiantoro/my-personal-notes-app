@@ -23,19 +23,21 @@ function ItemCatatan({notes, onDelete, onArsip, inputSearch}) {
 
                 notes.filter((note) => {
                     if (inputSearch === '') {
-                        return note
-                    }else if (note.title.toLowerCase().includes(inputSearch.toLowerCase())) {
-                        return note
+                        return note;
+                    } else if (note.title.toLowerCase().includes(inputSearch.toLowerCase())) {
+                        return note;
                     }
-                    return false
-                }).map((note,key) => 
-                    !note.archived && <NoteItem key={note.id} id={note.id} onDelete={onDelete} onArsip={onArsip} {...note}/>
+                    return false;
+                }).map((note, key) => 
+                    !note.archived && <NoteItem key={key} id={note.id} onDelete={onDelete} onArsip={onArsip} archived={note.archived} {...note}/>
                 )
                             :
-                <p>Tidak ada catatan</p>
+                <p className="notes-list__empty-message">Tidak ada catatan</p>
             }
             {
-                notes.length ? notes.filter(note => !note.archived).length <= 0 && <p>Tidak ada catatan</p> : false
+                notes.length ? 
+                notes.filter(note => !note.archived).length <= 0 && <p className="notes-list__empty-message">Tidak ada catatan</p> 
+                            : false
             }
         </div>
     );

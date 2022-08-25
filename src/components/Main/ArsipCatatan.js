@@ -4,7 +4,7 @@ import NoteItem from "./Item/NoteItem";
 // import {showFormattedDate} from '../../utils/index';
 
 // function ArsipCatatan({notes, onDelete, onArsip}) {
-function ArsipCatatan({notes, inputSearch, onDelete}) {
+function ArsipCatatan({notes, inputSearch, onDelete, unArsip}) {
     return (
         <div className="notes-list">
             {
@@ -12,19 +12,21 @@ function ArsipCatatan({notes, inputSearch, onDelete}) {
 
                 notes.filter((note) => {
                     if (inputSearch === '') {
-                        return note
+                        return note;
                     }else if (note.title.toLowerCase().includes(inputSearch.toLowerCase())) {
-                        return note
+                        return note;
                     }
-                    return false
-                }).map((note,key) => 
-                    note.archived && <NoteItem key={key} onDelete={onDelete} {...note} />
+                    return false;
+                }).map((note, key) => 
+                    note.archived && <NoteItem key={key} onDelete={onDelete} unArsip={unArsip} {...note} />
                 )
                             :
-                <p>Tidak ada catatan</p>
+                <p className="notes-list__empty-message">Tidak ada catatan</p>
             }
             {
-                notes.length ? notes.filter(note => note.archived).length <= 0 && <p>Tidak ada catatan</p> : false
+                notes.length ? 
+                notes.filter(note => note.archived).length <= 0 && <p className="notes-list__empty-message">Tidak ada catatan</p> 
+                            : false
             }
         </div>
     );
