@@ -5,6 +5,7 @@ Aplikasi ini dibuat dengan :
 1. Bahasa Markup HTML dan CSS
 2. Bahasa Pemrograman JavaScript
 3. Library React js
+4. data index.js dan style dari template dicoding
 
 # Getting Started with Create React App
 

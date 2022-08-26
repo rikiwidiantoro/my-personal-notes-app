@@ -49,9 +49,9 @@ class App extends React.Component {
 
         let newNote = this.state.notes.filter(note => note.id !== id);
 
-        this.setState((prevstate) => {
+        this.setState((prevState) => {
             return {
-                ...prevstate,
+                ...prevState,
                 notes: [
                     ...newNote,
                     note[0]
@@ -65,9 +65,9 @@ class App extends React.Component {
 
         let newNote = this.state.notes.filter(note => note.id !== id);
 
-        this.setState((prevstate) => {
+        this.setState((prevState) => {
             return {
-                ...prevstate,
+                ...prevState,
                 notes: [
                     ...newNote,
                     note[0]
@@ -76,9 +76,9 @@ class App extends React.Component {
         });
     }
     SearchNoteHandle(value){
-        this.setState((prevstate) => {
+        this.setState((prevState) => {
             return {
-                ...prevstate,
+                ...prevState,
                 inputSearch: value
             }
         });
