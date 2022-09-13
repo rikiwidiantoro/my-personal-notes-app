@@ -1,5 +1,8 @@
 # My Personal Notes App
 Adalah aplikasi catatan sederhana berbasis web
+
+React Developer - Beasiswa IDCamp 2022 x Dicoding
+
 Aplikasi ini dibuat dengan :
 
 1. Bahasa Markup HTML dan CSS
